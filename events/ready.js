@@ -4,7 +4,7 @@ const moment = require('moment');
 
 module.exports = client => {//pasador code
 var oyun = [
-        `MAJOR TEST`
+        `Created By Exalina`
     ];
 
     setInterval(function() {//pasador code
