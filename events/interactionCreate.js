@@ -20,16 +20,16 @@ module.exports = async (client, int) => {
                     value: 'newTicket'
                 },
                 {
-                    emoji: '🙋',
-                    label: 'Destek',
-                    description: 'Yardım isteyin',
-                    value: 'newTicket_Destek'
+                    emoji: '',
+                    label: 'Purchase',
+                    description: 'Satın Alım İçin',
+                    value: 'newTicket_Purchase'
                 },
                 {
                     emoji: '🛡️',
-                    label: 'Moderasyon',
-                    description: 'Ekiple konuşmak',
-                    value: 'newTicket_Moderasyon'
+                    label: 'Bilgi',
+                    description: 'Detay Öğrenmek İçin',
+                    value: 'newTicket_Bilgi'
                 },///Bunları Kopyalayarak Arttıra Bilirsiniz - major
             ]);
 

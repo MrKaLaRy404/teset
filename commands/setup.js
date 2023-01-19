@@ -14,7 +14,7 @@ module.exports = {
         setupEmbed.setThumbnail(message.author.displayAvatarURL({dynamic: true}))
         setupEmbed.setAuthor('Bilet sistemi');
         setupEmbed.setDescription('**Bir bilet oluşturmak için aşağıdaki reaksiyona tıklayın 🤝**');
-        setupEmbed.setFooter(`Destek Ekipi ile konuşmanız için yeni bir kanal oluşturulacak!`)
+        setupEmbed.setFooter(`Destek Ekibi ile konuşmanız için yeni bir kanal oluşturulacak!`)
 
         const ticketButton = new MessageButton();
 
