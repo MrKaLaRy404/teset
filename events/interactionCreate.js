@@ -11,7 +11,7 @@ module.exports = async (client, int) => {
             const selectMenu = new MessageSelectMenu();
 
             selectMenu.setCustomId('newTicket');
-            selectMenu.setPlaceholder('Bilet için bir neden seçin');//major code
+            selectMenu.setPlaceholder('Sellected Your Category');//major code
             selectMenu.addOptions([
                 {
                     emoji: '📙',
