@@ -16,7 +16,7 @@ module.exports = async (client, int) => {
                 {
                     emoji: '💰',
                     label: 'Buy Host',
-                    description: '.',
+                    description: 'If You Want Buy Host Samp',
                     value: 'newTicket'
                 },
                 {
@@ -26,7 +26,7 @@ module.exports = async (client, int) => {
                     value: 'newTicket_Purchase'
                 },
                 {
-                    emoji: '🔥',
+                    emoji: '⁉',
                     label: 'Problem',
                     description: 'If you have any problems, warn us about Pannel',
                     value: 'newTicket_Bilgi'
@@ -63,11 +63,11 @@ module.exports = async (client, int) => {
                     ]
                 });
 
-                const channel = int.guild.channels.cache.find(x => x.name === `ticket-${int.member.id}`);
+                const channel = int.guild.channels.cache.find(x => x.name === `ticket-${int.member.username}`);
                 const ticketEmbed = new MessageEmbed();
 //major code
                 ticketEmbed.setColor('GREEN');
-                ticketEmbed.setAuthor(`Biletiniz başarıyla oluşturuldu ${int.member.user.username} ${reason ? ` (${reason})` : ''} ✅`);
+                ticketEmbed.setAuthor(`Welcome To Alpha Hosting ${int.member.member.id} ${reason ? ` (${reason})` : ''} ✅`);
                 ticketEmbed.setDescription('*Mevcut bileti kapatmak için aşağıdaki tepkiye tıklayın, dikkat geri dönemeyeceksiniz!*');
                 channel.send(`<@${int.member.id}>`);
                 const closeButton = new MessageButton();

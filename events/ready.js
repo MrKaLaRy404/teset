@@ -4,7 +4,7 @@ const moment = require('moment');
 
 module.exports = client => {//pasador code
 var oyun = [
-        `Created By Exalina`
+        `Created By Alpha Hosting`
     ];
 
     setInterval(function() {//pasador code
