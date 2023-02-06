@@ -93,24 +93,18 @@ module.exports = async (client, int) => {
                 permissionOverwrites: [
                     {
                         id: int.guild.id,
-                        deny: ['VIEW_CHANN] , [SEND_MESSAGES']
+                        deny: ['VIEW_CHANNEL', 'SEND_MESSAGES']
                     },
                     {
                         id: int.customId.split('_')[1],//major code
-                        deny: ['VIEW_CHANN] , [SEND_MESSAGES']
+                        deny: ['VIEW_CHANNEL', 'SEND_MESSAGES']
                     },
                     {
                         id: client.user.id,
-                        allow: ['VIEW_CHANN] , [SEND_MESSAGES']
+                        allow: ['VIEW_CHANNEL', 'SEND_MESSAGES']
                     }
                 ]
             });
-          
-          
-    
-        
-        
-      
 
             const ticketEmbed = new MessageEmbed();
 
