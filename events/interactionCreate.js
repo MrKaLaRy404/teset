@@ -14,21 +14,21 @@ module.exports = async (client, int) => {
             selectMenu.setPlaceholder('Sellected Your Category');//major code
             selectMenu.addOptions([
                 {
-                    emoji: '📙',
-                    label: 'Diğer',
-                    description: 'Sebep yok',
+                    emoji: '💰',
+                    label: 'Buy Host',
+                    description: '.',
                     value: 'newTicket'
                 },
                 {
-                    emoji: '',
-                    label: 'Purchase',
-                    description: 'Satın Alım İçin',
+                    emoji: '🛠',
+                    label: 'Buy System',
+                    description: 'To Buy System Samp,Textdraw,Mapping',
                     value: 'newTicket_Purchase'
                 },
                 {
-                    emoji: '🛡️',
-                    label: 'Bilgi',
-                    description: 'Detay Öğrenmek İçin',
+                    emoji: '🔥',
+                    label: 'Problem',
+                    description: 'If you have any problems, warn us about Pannel',
                     value: 'newTicket_Bilgi'
                 },///Bunları Kopyalayarak Arttıra Bilirsiniz - major
             ]);
