@@ -14,7 +14,7 @@ module.exports = async (client, int) => {
             selectMenu.setPlaceholder('Sellected Your Category');//major code
             selectMenu.addOptions([
                 {
-                    emoji: '📙',
+                    emoji: '🔥 Support',
                     label: 'Diğer',
                     description: 'Sebep yok',
                     value: 'newTicket'
