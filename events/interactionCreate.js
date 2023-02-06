@@ -68,12 +68,12 @@ module.exports = async (client, int) => {
 //major code
                 ticketEmbed.setColor('GREEN');
                 ticketEmbed.setAuthor(`Welcome To Alpha Hosting  ${int.member.user.username} ${reason ? ` (${reason})` : ''} `);
-                ticketEmbed.setDescription('*Which plan do you want to buy!*');
+                ticketEmbed.setDescription('*** Welcome, here you go. Please type your request!****');
                 channel.send(`<@${int.member.id}>`);
                 const closeButton = new MessageButton();
 //major code
                 closeButton.setStyle('DANGER');
-                closeButton.setLabel('Bu bileti kapat');
+                closeButton.setLabel('Close');
                 closeButton.setCustomId(`closeTicket_${int.member.id}`);
 
                 const row = new MessageActionRow().addComponents(closeButton);
@@ -109,25 +109,25 @@ module.exports = async (client, int) => {
             const ticketEmbed = new MessageEmbed();
 
             ticketEmbed.setColor('RED');//major code
-            ticketEmbed.setAuthor(`${int.member.user.username} bu bileti kapatmaya karar verdi ❌`);
-            ticketEmbed.setDescription('*Bileti kalıcı olarak silmek veya bileti yeniden açmak için aşağıdaki butona tıklayın.*');
+            ticketEmbed.setAuthor(`${int.member.user.username} Are you sure you want to close the ticket? ❌`);
+            ticketEmbed.setDescription('*If you are sure you click Close... But if you close this section, it will be completely deleted.*');
 
             const reopenButton = new MessageButton();
 
             reopenButton.setStyle('SUCCESS');
-            reopenButton.setLabel('Bu bileti yeniden aç');
+            reopenButton.setLabel('🔓 Reopen ');
             reopenButton.setCustomId(`reopenTicket_${int.customId.split('_')[1]}`);
 
             const saveButton = new MessageButton();
 
             saveButton.setStyle('SUCCESS');//major code
-            saveButton.setLabel('Bu bileti kaydet');
+            saveButton.setLabel('📥 Claim');
             saveButton.setCustomId(`saveTicket_${int.customId.split('_')[1]}`);
 
             const deleteButton = new MessageButton();
 
             deleteButton.setStyle('DANGER');
-            deleteButton.setLabel('Bu bileti sil');
+            deleteButton.setLabel('🔒 Close');
             deleteButton.setCustomId('deleteTicket');
 
             const row = new MessageActionRow().addComponents(reopenButton, saveButton, deleteButton);
