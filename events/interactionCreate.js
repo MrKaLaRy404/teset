@@ -35,7 +35,7 @@ module.exports = async (client, int) => {
 
             const row = new MessageActionRow().addComponents(selectMenu);//major code
 
-            return int.reply({ content: 'Biletin sebebi ne olacak?', components: [row], ephemeral: true });//major code
+            return int.reply({ content: 'Choose for what reason do you want to Open Ticket?', components: [row], ephemeral: true });//major code
         }
 
         case 'newTicket': {//major code
@@ -46,7 +46,7 @@ module.exports = async (client, int) => {
             if (!channel) {
                 await int.guild.channels.create(`ticket-${int.member.id}`, {//id = kullanıcının idsini verir ismini vermesini isteyenler id yerine username yazsın <3
                     type: 'GUILD_TEXT',
-                    topic: `Bilet ${int.member.user.username} tarafından oluşturuldu. Sebep: ${reason ? ` (${reason})` : ''} ${new Date(Date.now()).toLocaleString()}`,
+                    topic: `Bilet ${int.member.id} tarafından oluşturuldu. Sebep: ${reason ? ` (${reason})` : ''} ${new Date(Date.now()).toLocaleString()}`,
                     permissionOverwrites: [
                         {
                             id: int.guild.id,
@@ -67,8 +67,8 @@ module.exports = async (client, int) => {
                 const ticketEmbed = new MessageEmbed();
 //major code
                 ticketEmbed.setColor('GREEN');
-                ticketEmbed.setAuthor(`Biletiniz başarıyla oluşturuldu ${int.member.user.username} ${reason ? ` (${reason})` : ''} ✅`);
-                ticketEmbed.setDescription('*Mevcut bileti kapatmak için aşağıdaki tepkiye tıklayın, dikkat geri dönemeyeceksiniz!*');
+                ticketEmbed.setAuthor(`Welcome To Alpha Hosting  ${int.member.user.username} ${reason ? ` (${reason})` : ''} `);
+                ticketEmbed.setDescription('*Which plan do you want to buy!*');
                 channel.send(`<@${int.member.id}>`);
                 const closeButton = new MessageButton();
 //major code
