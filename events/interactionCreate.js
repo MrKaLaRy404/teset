@@ -161,13 +161,14 @@ module.exports = async (client, int) => {
             ticketEmbed.setAuthor(`Bilet yeniden açıldı ✅`);
             ticketEmbed.setDescription('*Mevcut bileti kapatmak için aşağıdaki tepkiye tıklayın, dikkat geri dönemeyeceksiniz!*');
 
-            const closeButton = new MessageButton();
+           const closeButton = new MessageButton();
 
             closeButton.setStyle('DANGER');
             closeButton.setLabel('Bu bileti kapat');
-            closeButton.setCustomId(`closeTicket_${int.customId.split('_')[1]}`);
+           closeButton.setCustomId(`closeTicket_${int.customId.split('_')[1]}`);
 
-            const row = new MessageActionRow().addComponents(closeButton);
+          
+           const row = new MessageActionRow().addComponents(closeButton);
 
             return int.reply({ embeds: [ticketEmbed], components: [row] });
         }
