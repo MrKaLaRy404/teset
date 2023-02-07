@@ -11,31 +11,31 @@ module.exports = async (client, int) => {
             const selectMenu = new MessageSelectMenu();
 
             selectMenu.setCustomId('newTicket');
-            selectMenu.setPlaceholder('Sellected Your Category');//major code
+            selectMenu.setPlaceholder('Bilet için bir neden seçin');//major code
             selectMenu.addOptions([
                 {
-                    emoji: '💰',
-                    label: 'Buy Host',
-                    description: '.',
+                    emoji: '📙',
+                    label: 'Diğer',
+                    description: 'Sebep yok',
                     value: 'newTicket'
                 },
                 {
-                    emoji: '🛠',
-                    label: 'Buy System',
-                    description: 'To Buy System Samp,Textdraw,Mapping',
+                    emoji: '',
+                    label: 'Purchase',
+                    description: 'Satın Alım İçin',
                     value: 'newTicket_Purchase'
                 },
                 {
-                    emoji: '🔥',
-                    label: 'Problem',
-                    description: 'If you have any problems, warn us about Pannel',
+                    emoji: '🛡️',
+                    label: 'Bilgi',
+                    description: 'Detay Öğrenmek İçin',
                     value: 'newTicket_Bilgi'
                 },///Bunları Kopyalayarak Arttıra Bilirsiniz - major
             ]);
 
             const row = new MessageActionRow().addComponents(selectMenu);//major code
 
-            return int.reply({ content: 'Choose for what reason do you want to Open Ticket?', components: [row], ephemeral: true });//major code
+            return int.reply({ content: 'Biletin sebebi ne olacak?', components: [row], ephemeral: true });//major code
         }
 
         case 'newTicket': {//major code
@@ -46,7 +46,7 @@ module.exports = async (client, int) => {
             if (!channel) {
                 await int.guild.channels.create(`ticket-${int.member.id}`, {//id = kullanıcının idsini verir ismini vermesini isteyenler id yerine username yazsın <3
                     type: 'GUILD_TEXT',
-                    topic: `Bilet ${int.member.id} tarafından oluşturuldu. Sebep: ${reason ? ` (${reason})` : ''} ${new Date(Date.now()).toLocaleString()}`,
+                    topic: `Bilet ${int.member.user.username} tarafından oluşturuldu. Sebep: ${reason ? ` (${reason})` : ''} ${new Date(Date.now()).toLocaleString()}`,
                     permissionOverwrites: [
                         {
                             id: int.guild.id,
@@ -67,13 +67,13 @@ module.exports = async (client, int) => {
                 const ticketEmbed = new MessageEmbed();
 //major code
                 ticketEmbed.setColor('GREEN');
-                ticketEmbed.setAuthor(`Welcome To Alpha Hosting  ${int.member.user.username} ${reason ? ` (${reason})` : ''} `);
-                ticketEmbed.setDescription('*** Welcome, here you go. Please type your request!****');
+                ticketEmbed.setAuthor(`Biletiniz başarıyla oluşturuldu ${int.member.user.username} ${reason ? ` (${reason})` : ''} ✅`);
+                ticketEmbed.setDescription('*Mevcut bileti kapatmak için aşağıdaki tepkiye tıklayın, dikkat geri dönemeyeceksiniz!*');
                 channel.send(`<@${int.member.id}>`);
                 const closeButton = new MessageButton();
 //major code
                 closeButton.setStyle('DANGER');
-                closeButton.setLabel('Close');
+                closeButton.setLabel('Bu bileti kapat');
                 closeButton.setCustomId(`closeTicket_${int.member.id}`);
 
                 const row = new MessageActionRow().addComponents(closeButton);
@@ -109,25 +109,25 @@ module.exports = async (client, int) => {
             const ticketEmbed = new MessageEmbed();
 
             ticketEmbed.setColor('RED');//major code
-            ticketEmbed.setAuthor(`${int.member.user.username} Are you sure you want to close the ticket? ❌`);
-            ticketEmbed.setDescription('*If you are sure you click Close... But if you close this section, it will be completely deleted.*');
+            ticketEmbed.setAuthor(`${int.member.user.username} bu bileti kapatmaya karar verdi ❌`);
+            ticketEmbed.setDescription('*Bileti kalıcı olarak silmek veya bileti yeniden açmak için aşağıdaki butona tıklayın.*');
 
             const reopenButton = new MessageButton();
 
             reopenButton.setStyle('SUCCESS');
-            reopenButton.setLabel('🔓 Reopen ');
+            reopenButton.setLabel('Bu bileti yeniden aç');
             reopenButton.setCustomId(`reopenTicket_${int.customId.split('_')[1]}`);
 
             const saveButton = new MessageButton();
 
             saveButton.setStyle('SUCCESS');//major code
-            saveButton.setLabel('📥 Claim');
+            saveButton.setLabel('Bu bileti kaydet');
             saveButton.setCustomId(`saveTicket_${int.customId.split('_')[1]}`);
 
             const deleteButton = new MessageButton();
 
             deleteButton.setStyle('DANGER');
-            deleteButton.setLabel('🔒 Close');
+            deleteButton.setLabel('Bu bileti sil');
             deleteButton.setCustomId('deleteTicket');
 
             const row = new MessageActionRow().addComponents(reopenButton, saveButton, deleteButton);
@@ -161,14 +161,13 @@ module.exports = async (client, int) => {
             ticketEmbed.setAuthor(`Bilet yeniden açıldı ✅`);
             ticketEmbed.setDescription('*Mevcut bileti kapatmak için aşağıdaki tepkiye tıklayın, dikkat geri dönemeyeceksiniz!*');
 
-           const closeButton = new MessageButton();
+            const closeButton = new MessageButton();
 
             closeButton.setStyle('DANGER');
             closeButton.setLabel('Bu bileti kapat');
-           closeButton.setCustomId(`closeTicket_${int.customId.split('_')[1]}`);
+            closeButton.setCustomId(`closeTicket_${int.customId.split('_')[1]}`);
 
-          
-           const row = new MessageActionRow().addComponents(closeButton);
+            const row = new MessageActionRow().addComponents(closeButton);
 
             return int.reply({ embeds: [ticketEmbed], components: [row] });
         }

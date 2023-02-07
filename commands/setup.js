@@ -12,15 +12,15 @@ module.exports = {
 
         setupEmbed.setColor('GREEN');
         setupEmbed.setThumbnail(message.author.displayAvatarURL({dynamic: true}))
-        setupEmbed.setAuthor('Alpha Ticket');
-        setupEmbed.setDescription('**Click 🔓 **');
-        setupEmbed.setFooter(`Alpha Hosing For Ever!`)
+        setupEmbed.setAuthor('Bilet sistemi');
+        setupEmbed.setDescription('**Bir bilet oluşturmak için aşağıdaki reaksiyona tıklayın 🤝**');
+        setupEmbed.setFooter(`Destek Ekibi ile konuşmanız için yeni bir kanal oluşturulacak!`)
 
         const ticketButton = new MessageButton();
 
         ticketButton.setEmoji('🔓');
         ticketButton.setStyle('SUCCESS');
-        ticketButton.setLabel('Open');
+        ticketButton.setLabel('Bilet Oluştur');
         ticketButton.setCustomId('createTicket');
 
         const row = new MessageActionRow().addComponents(ticketButton);
