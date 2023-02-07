@@ -11,4 +11,4 @@ client.config = require('./config');
 
 require('./src/loader');
 
-client.login("MTA2NjQzNTQxODMxMDA1MzkzOA.GBvl_v.n2_aAHMx645sdbjMejFhPf0keFumOY6_5YS0CM")
+client.login("MTA2NDYxNDY1ODgzNDU5Mw.GM-HUM.QiKXxQoWppDRdSAw9E7KCirxqYRx1sXJNVVSNw")
