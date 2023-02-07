@@ -11,7 +11,7 @@ module.exports = async (client, int) => {
             const selectMenu = new MessageSelectMenu();
 
             selectMenu.setCustomId('newTicket');
-            selectMenu.setPlaceholder('Sellected Your Category');//major code
+            selectMenu.setPlaceholder('Select Your Category');//major code
             selectMenu.addOptions([
                 {
                     emoji: '💰',
@@ -80,9 +80,9 @@ module.exports = async (client, int) => {
 
                 await channel.send({ embeds: [ticketEmbed], components: [row] });
 
-                return int.update({ content: `Biletiniz Açıldı <@${int.member.id}> <#${channel.id}> ✅`, components: [], ephemeral: true });
+                return int.update({ content: `Ticket Was successfully Created <@${int.member.id}> <#${channel.id}> ✅`, components: [], ephemeral: true });
             } else {
-                return int.update({ content: `Zaten açık bir biletiniz var <#${channel.id}> ❌`, components: [], ephemeral: true });
+                return int.update({ content: `You Already Created Ticket <#${channel.id}> ❌`, components: [], ephemeral: true });
             }
         }//major code
 
@@ -158,13 +158,13 @@ module.exports = async (client, int) => {
             const ticketEmbed = new MessageEmbed();//major code
 
             ticketEmbed.setColor('GREEN');
-            ticketEmbed.setAuthor(`Bilet yeniden açıldı ✅`);
-            ticketEmbed.setDescription('*Mevcut bileti kapatmak için aşağıdaki tepkiye tıklayın, dikkat geri dönemeyeceksiniz!*');
+            ticketEmbed.setAuthor(`reopened successfully ✅`);
+            ticketEmbed.setDescription('*Now you can send the message again.... But if youre sure you want to close the reclosed!*');
 
            const closeButton = new MessageButton();
 
             closeButton.setStyle('DANGER');
-            closeButton.setLabel('Bu bileti kapat');
+            closeButton.setLabel('Reclosed');
            closeButton.setCustomId(`closeTicket_${int.customId.split('_')[1]}`);
 
           
